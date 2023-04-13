@@ -4,9 +4,8 @@ import pymongo
 import json
 from bson import ObjectId
 import json
-from bson import json_util
 from flask import jsonify
-import numpy as np
+
 
 
 app = Flask(__name__)
