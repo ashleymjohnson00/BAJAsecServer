@@ -24,7 +24,7 @@ def threats():
     db = client.BAJAsecDB
     collection = db.ThreatConfidence
     get = (collection.find().sort([('_id', -1)]).limit(1))
-    json_docs = {"Threat": []}
+    json_docs = {"Test": []}
     print("the result is: ",get)
     for record in get:
         confidence = (record['Confidence'])
