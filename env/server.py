@@ -44,6 +44,15 @@ def threats():
 def members():
     return {"members": ["Member1", "Member2", "Member3"]}
 
+@app.route("/timestamp")
+def getTimestamp():
+    client = pymongo.MongoClient("mongodb+srv://GUIMongoDb:BAJASEC123@cluster0.gsdusly.mongodb.net/?retryWrites=true&w=majority")
+    db = client.BAJAsecDB
+    collection = db.ThreatConfidence
+    getTs = (collection.find().sort([('_id', -1)]).limit(1))
+    for record in getTs:
+        timeStamp = (record['Time'])
+    return jsonify(timeStamp)
 
 
 
