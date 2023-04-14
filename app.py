@@ -23,10 +23,10 @@ def threats():
     db = client.BAJAsecDB
     collection = db.ThreatConfidence
     get = (collection.find().sort([('_id', -1)]).limit(1))
-    json_docs = {"Test": []}
     print("the result is: ",get)
     for record in get:
         confidence = (record['Confidence'])
+        time = (record['Time'])
     #The bellow code uses a loop to save the cursor
     #data to a json object using the json_util
 
@@ -35,9 +35,8 @@ def threats():
       #  json_docs["Threat"].append(json_doc)
    # print(get['Confidence'])
     #data = JSONEncoder().encode(get)
-    for data in json_docs:
-        print(data)
-    return jsonify(confidence)
+    print("this is the time",time)
+    return jsonify(confidence), jsonify(time)
 
 @app.route("/Members")
 def members():
